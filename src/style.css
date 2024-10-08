@@ -1,0 +1,53 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+@layer components {
+    .todo-item {
+        @apply flex items-center justify-between bg-white p-4 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg;
+    }
+
+    .todo-text {
+        @apply ml-3 text-gray-800 transition duration-300 ease-in-out;
+    }
+
+    [dir="rtl"] .todo-text {
+        @apply mr-3 ml-0;
+    }
+
+    .todo-completed .todo-text {
+        @apply line-through text-gray-500;
+    }
+
+    .checkbox {
+        @apply h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500;
+    }
+
+    .delete-btn {
+        @apply text-red-500 hover:text-red-700 transition duration-300 ease-in-out;
+    }
+}
+
+[dir="rtl"] .todo-item,
+[dir="rtl"] #todo-form > div {
+    @apply flex-row-reverse;
+}
+
+[dir="rtl"] #add-button {
+    @apply mr-2 ml-0;
+}
+
+#celebration {
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
